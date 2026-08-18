@@ -1,0 +1,9 @@
+{
+  "pages": ["pages/home/home"],
+  "window": {
+    "navigationBarTitleText": "小小连连看",
+    "navigationBarBackgroundColor": "#fff7de",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff7de"
+  }
+}

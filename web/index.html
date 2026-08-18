@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#fff7de">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="小小连连看">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/icon.svg">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>小小连连看</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <button class="icon-button" id="soundButton" type="button" aria-label="声音开关" title="声音开关"><span aria-hidden="true">&#128266;</span></button>
+      <div class="brand"><span class="brand-star" aria-hidden="true">&#11088;</span><h1>小小连连看</h1></div>
+      <button class="icon-button" id="homeButton" type="button" aria-label="回到选关" title="回到选关"><span aria-hidden="true">&#8962;</span></button>
+    </header>
+    <section class="screen level-screen" id="levelScreen" aria-labelledby="levelTitle">
+      <div class="welcome-illustration" aria-hidden="true"><span>&#128048;</span><span>&#127774;</span><span>&#129418;</span></div>
+      <h2 id="levelTitle">今天玩哪一关？</h2><p class="subtitle">找到两个一样的朋友，轻轻点一对。</p>
+      <div class="level-list" id="levelList"></div><p class="parent-note">没有时间限制，可以慢慢玩。</p>
+    </section>
+    <section class="screen game-screen is-hidden" id="gameScreen" aria-labelledby="gameTitle">
+      <div class="game-info"><div class="level-label"><span id="levelBadge">第 1 关</span><strong id="gameTitle">找朋友</strong></div><div class="progress-wrap" aria-label="本关进度"><div class="progress-bar" id="progressBar"></div></div><div class="match-count" id="matchCount">还剩 6 对</div></div>
+      <div class="board-wrap"><div class="board" id="board" aria-label="连连看棋盘"></div></div>
+      <p class="game-hint" id="gameHint" role="status">点两个一样的图案试一试</p>
+      <div class="game-actions"><button class="secondary-button" id="hintButton" type="button">提示</button><button class="secondary-button" id="restartButton" type="button">重玩这一关</button></div>
+    </section>
+  </main>
+  <div class="overlay is-hidden" id="completeOverlay" role="dialog" aria-modal="true" aria-labelledby="completeTitle"><div class="celebration"><div class="confetti" aria-hidden="true">&#127881; &#11088; &#127881;</div><div class="big-face" aria-hidden="true">&#128515;</div><h2 id="completeTitle">太棒啦！</h2><p id="completeText">你帮所有朋友找到了伙伴。</p><button class="primary-button" id="nextButton" type="button">下一关</button><button class="text-button" id="chooseLevelButton" type="button">选别的关卡</button></div></div>
+  <script src="game.js"></script>
+</body>
+</html>

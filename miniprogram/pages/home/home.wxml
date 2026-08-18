@@ -1,0 +1,36 @@
+<view class="page-shell">
+  <view wx:if="{{screen === 'levels'}}" class="levels-screen">
+    <view class="welcome-icons"><text>🐱</text><text>☀️</text><text>🦊</text></view>
+    <view class="title">今天玩哪一关？</view>
+    <view class="subtitle">找到两个一样的朋友，轻轻点一对。</view>
+    <view class="level-list">
+      <button wx:for="{{levelCards}}" wx:key="id" class="level-card {{item.locked ? 'locked' : ''}}" data-id="{{item.id}}" bindtap="chooseLevel">
+        <text class="level-number">第 {{item.id}} 关</text>
+        <text class="level-icon">{{item.icon}}</text>
+        <text class="level-title">{{item.title}}</text>
+        <text class="level-info">{{item.pairs}} 对朋友</text>
+        <text wx:if="{{item.locked}}" class="lock">🔒</text>
+      </button>
+    </view>
+    <view class="parent-note">没有时间限制，可以慢慢玩。</view>
+  </view>
+
+  <view wx:else class="game-screen">
+    <view class="game-info">
+      <view class="game-heading"><text class="level-badge">第 {{currentLevel.id}} 关</text><text class="game-title">{{currentLevel.title}}</text></view>
+      <view class="progress-track"><view class="progress-fill" style="width: {{progress}}%;"></view></view>
+      <view class="match-count">还剩 {{remaining}} 对</view>
+    </view>
+    <view class="board" style="grid-template-columns: repeat({{currentLevel.columns}}, 1fr);">
+      <button wx:for="{{board}}" wx:key="id" class="tile tile-{{index % 4}} {{item.removed ? 'empty' : ''}} {{item.selected ? 'selected' : ''}} {{item.hint ? 'hint' : ''}}" data-index="{{index}}" bindtap="tapTile">
+        {{item.removed ? '' : item.symbol}}
+      </button>
+    </view>
+    <view class="hint-text">{{hintText}}</view>
+    <view class="action-row"><button class="secondary-button" bindtap="showHint">提示</button><button class="secondary-button" bindtap="restartLevel">重玩这一关</button></view>
+  </view>
+</view>
+
+<view wx:if="{{showComplete}}" class="overlay">
+  <view class="celebration"><view class="confetti">🎉 ⭐ 🎉</view><view class="big-face">😄</view><view class="complete-title">太棒啦！</view><view class="complete-text">{{completeText}}</view><button class="primary-button" bindtap="nextLevel">{{nextLabel}}</button><button class="text-button" bindtap="backToLevels">选别的关卡</button></view>
+</view>

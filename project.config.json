@@ -1,0 +1,12 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "projectname": "小小连连看",
+  "description": "适合幼儿游玩的连连看闯关小游戏",
+  "appid": "touristappid",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "minified": true
+  },
+  "compileType": "miniprogram"
+}

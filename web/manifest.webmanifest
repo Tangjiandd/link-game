@@ -1,0 +1,10 @@
+{
+  "name": "小小连连看",
+  "short_name": "连连看",
+  "description": "适合幼儿触屏游玩的连连看闯关小游戏",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff7de",
+  "theme_color": "#fff7de",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
